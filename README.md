@@ -2,7 +2,7 @@
 
 Projeto de portfólio QA focado em automação de testes web usando Robot Framework e SeleniumLibrary.
 
-Este projeto contém uma suíte inicial de testes automatizados para a aplicação web SauceDemo, cobrindo cenários principais de login e validações da página de produtos com uma estrutura simples e de fácil manutenção.
+Este projeto contém uma suíte de testes automatizados para a aplicação web SauceDemo, cobrindo cenários principais de login, página de produtos, ordenação de produtos e carrinho de compras com uma estrutura simples e de fácil manutenção.
 
 ## Tecnologias Utilizadas
 
@@ -18,7 +18,7 @@ O escopo atual valida fluxos principais em:
 
 https://www.saucedemo.com/
 
-Os testes cobrem login com sucesso, credenciais inválidas, comportamento de usuário bloqueado, exibição da lista de produtos e ordenação de produtos.
+Os testes cobrem login com sucesso, credenciais inválidas, comportamento de usuário bloqueado, exibição da lista de produtos, ordenação de produtos e fluxos do carrinho de compras.
 
 ## Estrutura do Projeto
 
@@ -29,11 +29,13 @@ Os testes cobrem login com sucesso, credenciais inválidas, comportamento de usu
 ├── .gitignore
 ├── tests/
 │   ├── login_tests.robot
-│   └── products_tests.robot
+│   ├── products_tests.robot
+│   └── cart_tests.robot
 └── resources/
     ├── common.resource
     ├── login_keywords.resource
-    └── products_keywords.resource
+    ├── products_keywords.resource
+    └── cart_keywords.resource
 ```
 
 ## Instalação das Dependências
@@ -89,9 +91,13 @@ Abra `results/report.html` ou `results/log.html` em um navegador para revisar os
 - Página de produtos contém produtos padrão esperados.
 - Usuário consegue ordenar produtos por nome de Z a A.
 - Usuário consegue ordenar produtos por preço do menor para o maior.
+- Produto adicionado atualiza o badge do carrinho.
+- Produto adicionado aparece no carrinho.
+- Produto pode ser removido do carrinho.
+- Múltiplos produtos podem ser adicionados ao carrinho.
 
 ## Próximos Passos
 
-- Adicionar testes do fluxo de carrinho.
 - Adicionar testes do fluxo de checkout.
-- Configurar execução em CI para verificações automatizadas de regressão.
+- Configurar execução em CI com GitHub Actions.
+- Melhorar evidências/documentação de execução.
