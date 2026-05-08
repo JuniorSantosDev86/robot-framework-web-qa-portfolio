@@ -29,7 +29,11 @@ jobs:
           pip install -r requirements.txt
 
       - name: Display Robot Framework version
-        run: robot --version
+        run: |
+          python -c "import robot; print(f'Robot Framework {robot.__version__}')"
+
+      - name: Prepare reports directory
+        run: mkdir -p results
 
       - name: Run Robot Framework tests
         run: robot -d results tests
