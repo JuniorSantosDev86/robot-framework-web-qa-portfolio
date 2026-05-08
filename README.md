@@ -2,7 +2,7 @@
 
 Projeto de portfólio QA focado em automação de testes web usando Robot Framework e SeleniumLibrary.
 
-Este projeto contém uma suíte inicial de testes automatizados para a aplicação web SauceDemo, cobrindo cenários principais de login com uma estrutura simples e de fácil manutenção.
+Este projeto contém uma suíte inicial de testes automatizados para a aplicação web SauceDemo, cobrindo cenários principais de login e validações da página de produtos com uma estrutura simples e de fácil manutenção.
 
 ## Tecnologias Utilizadas
 
@@ -14,11 +14,11 @@ Este projeto contém uma suíte inicial de testes automatizados para a aplicaç�
 
 ## Escopo dos Testes
 
-O escopo atual valida o fluxo de login em:
+O escopo atual valida fluxos principais em:
 
 https://www.saucedemo.com/
 
-Os testes cobrem login com sucesso, credenciais inválidas e comportamento de usuário bloqueado.
+Os testes cobrem login com sucesso, credenciais inválidas, comportamento de usuário bloqueado, exibição da lista de produtos e ordenação de produtos.
 
 ## Estrutura do Projeto
 
@@ -28,15 +28,35 @@ Os testes cobrem login com sucesso, credenciais inválidas e comportamento de us
 ├── requirements.txt
 ├── .gitignore
 ├── tests/
-│   └── login_tests.robot
+│   ├── login_tests.robot
+│   └── products_tests.robot
 └── resources/
     ├── common.resource
-    └── login_keywords.resource
+    ├── login_keywords.resource
+    └── products_keywords.resource
 ```
 
 ## Instalação das Dependências
 
-Crie e ative um ambiente virtual, depois instale as dependências:
+Crie o ambiente virtual:
+
+```bash
+python3 -m venv .venv
+```
+
+Ative o ambiente virtual no Linux/macOS:
+
+```bash
+source .venv/bin/activate
+```
+
+Atualize o pip:
+
+```bash
+python -m pip install --upgrade pip
+```
+
+Instale as dependências:
 
 ```bash
 pip install -r requirements.txt
@@ -65,10 +85,13 @@ Abra `results/report.html` ou `results/log.html` em um navegador para revisar os
 - Login válido redireciona o usuário para a página de produtos.
 - Login inválido exibe uma mensagem de erro.
 - Login com usuário bloqueado exibe uma mensagem de erro.
+- Página de produtos exibe a lista de produtos.
+- Página de produtos contém produtos padrão esperados.
+- Usuário consegue ordenar produtos por nome de Z a A.
+- Usuário consegue ordenar produtos por preço do menor para o maior.
 
 ## Próximos Passos
 
-- Adicionar validações da listagem de produtos.
 - Adicionar testes do fluxo de carrinho.
 - Adicionar testes do fluxo de checkout.
 - Configurar execução em CI para verificações automatizadas de regressão.
