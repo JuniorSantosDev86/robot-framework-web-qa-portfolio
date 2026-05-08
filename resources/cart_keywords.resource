@@ -26,7 +26,9 @@ Add Bike Light To Cart
     Wait Until Element Is Visible    ${REMOVE_BIKE_LIGHT_BUTTON}
 
 Open Cart
-    Click Link    ${CART_LINK}
+    Wait Until Element Is Visible    ${CART_LINK}
+    Wait Until Element Is Enabled    ${CART_LINK}
+    Click Element    ${CART_LINK}
     Wait Until Location Contains    cart.html
     Wait Until Element Is Visible    ${CART_LIST}
 

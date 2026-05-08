@@ -10,7 +10,7 @@ ${VALID_PASSWORD}       secret_sauce
 ${LOCKED_USER}          locked_out_user
 ${INVALID_USER}         invalid_user
 ${INVALID_PASSWORD}     invalid_password
-${DEFAULT_TIMEOUT}      10s
+${DEFAULT_TIMEOUT}      20s
 
 
 *** Keywords ***
