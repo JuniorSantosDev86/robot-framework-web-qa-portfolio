@@ -2,7 +2,7 @@
 
 Projeto de portfólio QA focado em automação de testes web usando Robot Framework e SeleniumLibrary.
 
-Este projeto contém uma suíte de testes automatizados para a aplicação web SauceDemo, cobrindo cenários principais de login, página de produtos, ordenação de produtos e carrinho de compras com uma estrutura simples e de fácil manutenção.
+Este projeto contém uma suíte de testes automatizados para a aplicação web SauceDemo, cobrindo cenários principais de login, página de produtos, ordenação de produtos, carrinho de compras e checkout com uma estrutura simples e de fácil manutenção.
 
 ## Tecnologias Utilizadas
 
@@ -18,7 +18,7 @@ O escopo atual valida fluxos principais em:
 
 https://www.saucedemo.com/
 
-Os testes cobrem login com sucesso, credenciais inválidas, comportamento de usuário bloqueado, exibição da lista de produtos, ordenação de produtos e fluxos do carrinho de compras.
+Os testes cobrem login com sucesso, credenciais inválidas, comportamento de usuário bloqueado, exibição da lista de produtos, ordenação de produtos, fluxos do carrinho de compras e checkout.
 
 ## Estrutura do Projeto
 
@@ -30,12 +30,14 @@ Os testes cobrem login com sucesso, credenciais inválidas, comportamento de usu
 ├── tests/
 │   ├── login_tests.robot
 │   ├── products_tests.robot
-│   └── cart_tests.robot
+│   ├── cart_tests.robot
+│   └── checkout_tests.robot
 └── resources/
     ├── common.resource
     ├── login_keywords.resource
     ├── products_keywords.resource
-    └── cart_keywords.resource
+    ├── cart_keywords.resource
+    └── checkout_keywords.resource
 ```
 
 ## Instalação das Dependências
@@ -95,9 +97,14 @@ Abra `results/report.html` ou `results/log.html` em um navegador para revisar os
 - Produto adicionado aparece no carrinho.
 - Produto pode ser removido do carrinho.
 - Múltiplos produtos podem ser adicionados ao carrinho.
+- Resumo do checkout exibe produto adicionado.
+- Usuário consegue finalizar uma compra com sucesso.
+- Checkout exige primeiro nome.
+- Checkout exige sobrenome.
+- Checkout exige CEP.
 
 ## Próximos Passos
 
-- Adicionar testes do fluxo de checkout.
 - Configurar execução em CI com GitHub Actions.
 - Melhorar evidências/documentação de execução.
+- Adicionar badges de status e tecnologias no README.
