@@ -32,8 +32,31 @@ jobs:
         run: |
           python -c "import robot; print(f'Robot Framework {robot.__version__}')"
 
+      - name: Check Python and pip
+        run: |
+          python --version
+          pip --version
+
+      - name: Check Robot Framework installation
+        run: |
+          python -c "import robot; print(f'Robot Framework {robot.__version__}')"
+
+      - name: Check Chrome installation
+        run: |
+          google-chrome --version || chromium-browser --version || chromium --version
+
+      - name: Check Selenium installation
+        run: |
+          python -c "import selenium; print(f'Selenium {selenium.__version__}')"
+
       - name: Prepare reports directory
         run: mkdir -p results
+
+      - name: Display workspace files
+        run: |
+          pwd
+          ls -la
+          find tests resources -maxdepth 2 -type f
 
       - name: Run Robot Framework tests
         run: robot -d results tests
