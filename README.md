@@ -1,5 +1,11 @@
 # Portfólio QA Web com Robot Framework
 
+[![Robot Framework Tests](https://github.com/JuniorSantosDev86/robot-framework-web-qa-portfolio/actions/workflows/robot-tests.yml/badge.svg)](https://github.com/JuniorSantosDev86/robot-framework-web-qa-portfolio/actions/workflows/robot-tests.yml)
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![Robot Framework](https://img.shields.io/badge/Robot%20Framework-7.4.2-red)
+![SeleniumLibrary](https://img.shields.io/badge/SeleniumLibrary-6.8.0-green)
+![QA Automation](https://img.shields.io/badge/QA-Automation-purple)
+
 Projeto de portfólio QA focado em automação de testes web usando Robot Framework e SeleniumLibrary.
 
 Este projeto contém uma suíte de testes automatizados para a aplicação web SauceDemo, cobrindo cenários principais de login, página de produtos, ordenação de produtos, carrinho de compras e checkout com uma estrutura simples e de fácil manutenção.
@@ -24,6 +30,9 @@ Os testes cobrem login com sucesso, credenciais inválidas, comportamento de usu
 
 ```text
 .
+├── .github/
+│   └── workflows/
+│       └── robot-tests.yml
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
@@ -84,6 +93,26 @@ Após a execução, o Robot Framework gera os relatórios na pasta `results/`:
 
 Abra `results/report.html` ou `results/log.html` em um navegador para revisar os resultados da execução.
 
+## Integração Contínua
+
+Os testes são executados automaticamente pelo GitHub Actions em eventos de push e pull request na branch `main`.
+
+Também é possível iniciar uma execução manualmente pela opção `workflow_dispatch` na página do workflow.
+
+O workflow instala as dependências do projeto, executa a suíte Robot Framework e salva os relatórios como artifact. Os relatórios ficam disponíveis no GitHub Actions com o nome `robot-framework-reports`.
+
+## Relatórios no GitHub Actions
+
+Após cada execução do workflow, os relatórios do Robot Framework são enviados como artifact.
+
+O artifact contém:
+
+- `report.html`
+- `log.html`
+- `output.xml`
+
+Para visualizar os relatórios, abra a execução do workflow no GitHub Actions e baixe o artifact `robot-framework-reports`.
+
 ## Cenários Implementados
 
 - Login válido redireciona o usuário para a página de produtos.
@@ -105,6 +134,6 @@ Abra `results/report.html` ou `results/log.html` em um navegador para revisar os
 
 ## Próximos Passos
 
-- Configurar execução em CI com GitHub Actions.
 - Melhorar evidências/documentação de execução.
-- Adicionar badges de status e tecnologias no README.
+- Adicionar screenshots ou GIFs demonstrando a execução dos testes.
+- Expandir o projeto com cenários negativos adicionais e validações de regressão.

@@ -1,0 +1,43 @@
+name: Robot Framework Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  robot-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Display Robot Framework version
+        run: robot --version
+
+      - name: Run Robot Framework tests
+        run: robot -d results tests
+
+      - name: Upload Robot Framework reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: robot-framework-reports
+          path: results/
+          retention-days: 7
