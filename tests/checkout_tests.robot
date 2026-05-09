@@ -9,7 +9,7 @@ Checkout Overview Should Display Added Product
     Start Checkout With Backpack In Cart
     Submit Checkout Information    ${VALID_FIRST_NAME}    ${VALID_LAST_NAME}    ${VALID_POSTAL_CODE}
     Checkout Overview Should Be Visible
-    Checkout Overview Should Contain Product    Sauce Labs Backpack
+    Checkout Overview Should Contain Product    ${BACKPACK_NAME}
 
 User Should Complete Checkout Successfully
     Start Checkout With Backpack In Cart

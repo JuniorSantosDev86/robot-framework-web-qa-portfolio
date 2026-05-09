@@ -12,14 +12,14 @@ Adding Product Should Update Cart Badge
 Added Product Should Be Displayed In Cart
     Add Backpack To Cart
     Open Cart
-    Cart Should Contain Product    Sauce Labs Backpack
+    Cart Should Contain Product    ${BACKPACK_NAME}
     Cart Should Have Item Count    1
 
 User Should Be Able To Remove Product From Cart
     Add Backpack To Cart
     Open Cart
     Remove Backpack From Cart
-    Cart Should Not Contain Product    Sauce Labs Backpack
+    Cart Should Not Contain Product    ${BACKPACK_NAME}
     Cart Should Have Item Count    0
 
 User Should Be Able To Add Multiple Products To Cart
@@ -27,6 +27,6 @@ User Should Be Able To Add Multiple Products To Cart
     Add Bike Light To Cart
     Cart Badge Should Show Quantity    2
     Open Cart
-    Cart Should Contain Product    Sauce Labs Backpack
-    Cart Should Contain Product    Sauce Labs Bike Light
+    Cart Should Contain Product    ${BACKPACK_NAME}
+    Cart Should Contain Product    ${BIKE_LIGHT_NAME}
     Cart Should Have Item Count    2

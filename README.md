@@ -8,23 +8,35 @@
 
 Projeto de portfólio QA focado em automação de testes web usando Robot Framework e SeleniumLibrary.
 
-Este projeto contém uma suíte de testes automatizados para a aplicação web SauceDemo, cobrindo cenários principais de login, página de produtos, ordenação de produtos, carrinho de compras e checkout com uma estrutura simples e de fácil manutenção.
+Este projeto contém uma suíte automatizada para a aplicação SauceDemo, cobrindo login, página de produtos, ordenação, carrinho e checkout. A estrutura foi mantida simples e modular para facilitar manutenção, leitura por recrutadores e execução em CI.
 
 ## Tecnologias Utilizadas
 
-- Python
+- Python 3.12
 - Robot Framework
 - SeleniumLibrary
-- Navegador Chrome
-- Site de testes SauceDemo
+- Selenium WebDriver
+- Google Chrome headless
+- GitHub Actions
+- SauceDemo
 
 ## Escopo dos Testes
 
-O escopo atual valida fluxos principais em:
+Aplicação testada:
 
 https://www.saucedemo.com/
 
-Os testes cobrem login com sucesso, credenciais inválidas, comportamento de usuário bloqueado, exibição da lista de produtos, ordenação de produtos, fluxos do carrinho de compras e checkout.
+Cenários cobertos:
+
+- Login com usuário válido.
+- Login com usuário inválido.
+- Login com usuário bloqueado.
+- Exibição da página de produtos.
+- Ordenação de produtos.
+- Adição de produtos ao carrinho.
+- Remoção de produtos do carrinho.
+- Checkout com sucesso.
+- Validações obrigatórias do formulário de checkout.
 
 ## Estrutura do Projeto
 
@@ -43,6 +55,7 @@ Os testes cobrem login com sucesso, credenciais inválidas, comportamento de usu
 │   └── checkout_tests.robot
 └── resources/
     ├── common.resource
+    ├── ui_actions.resource
     ├── login_keywords.resource
     ├── products_keywords.resource
     ├── cart_keywords.resource
@@ -77,49 +90,44 @@ pip install -r requirements.txt
 
 ## Execução dos Testes
 
-Execute toda a suíte de testes com:
+Execute toda a suíte:
 
 ```bash
 robot -d results tests
 ```
 
-## Visualização dos Relatórios
+Ou execute uma suíte específica:
 
-Após a execução, o Robot Framework gera os relatórios na pasta `results/`:
+```bash
+robot -d results tests/login_tests.robot
+robot -d results tests/products_tests.robot
+robot -d results tests/cart_tests.robot
+robot -d results tests/checkout_tests.robot
+```
+
+## Relatórios Locais
+
+Após a execução, o Robot Framework gera os relatórios em `results/`:
 
 - `results/report.html`
 - `results/log.html`
 - `results/output.xml`
 
-Abra `results/report.html` ou `results/log.html` em um navegador para revisar os resultados da execução.
+Abra `results/report.html` ou `results/log.html` no navegador para revisar os resultados.
 
 ## Integração Contínua
 
-Os testes são executados automaticamente pelo GitHub Actions em eventos de push e pull request na branch `main`.
+Os testes são executados automaticamente pelo GitHub Actions em eventos de `push` e `pull_request` na branch `main`. Também é possível executar manualmente pela aba Actions.
 
-Também é possível iniciar uma execução manualmente pela opção `workflow_dispatch` na página do workflow.
-
-O workflow instala as dependências do projeto, executa a suíte Robot Framework e salva os relatórios como artifact. Os relatórios ficam disponíveis no GitHub Actions com o nome `robot-framework-reports`.
-
-## Relatórios no GitHub Actions
-
-Após cada execução do workflow, os relatórios do Robot Framework são enviados como artifact.
-
-O artifact contém:
-
-- `report.html`
-- `log.html`
-- `output.xml`
-
-Para visualizar os relatórios, abra a execução do workflow no GitHub Actions e baixe o artifact `robot-framework-reports`.
+O workflow instala as dependências, executa a suíte Robot Framework e salva os relatórios como artifact com o nome `robot-framework-reports`.
 
 ## Cenários Implementados
 
-- Login válido redireciona o usuário para a página de produtos.
-- Login inválido exibe uma mensagem de erro.
-- Login com usuário bloqueado exibe uma mensagem de erro.
-- Página de produtos exibe a lista de produtos.
-- Página de produtos contém produtos padrão esperados.
+- Login válido redireciona para a página de produtos.
+- Login inválido exibe mensagem de erro.
+- Usuário bloqueado exibe mensagem de erro.
+- Página de produtos exibe a lista de itens.
+- Página de produtos contém produtos esperados.
 - Usuário consegue ordenar produtos por nome de Z a A.
 - Usuário consegue ordenar produtos por preço do menor para o maior.
 - Produto adicionado atualiza o badge do carrinho.
@@ -134,6 +142,6 @@ Para visualizar os relatórios, abra a execução do workflow no GitHub Actions 
 
 ## Próximos Passos
 
-- Melhorar evidências/documentação de execução.
-- Adicionar screenshots ou GIFs demonstrando a execução dos testes.
-- Expandir o projeto com cenários negativos adicionais e validações de regressão.
+- Adicionar screenshots ou GIFs demonstrando a execução.
+- Expandir o projeto com cenários negativos adicionais.
+- Adicionar documentação com estratégia de testes e decisões técnicas.

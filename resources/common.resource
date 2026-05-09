@@ -29,4 +29,4 @@ Open SauceDemo
     Wait Until Element Is Visible    id=user-name
 
 Close Browser Session
-    Close Browser
+    Close All Browsers

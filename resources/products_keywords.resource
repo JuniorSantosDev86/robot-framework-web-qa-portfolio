@@ -1,5 +1,4 @@
 *** Settings ***
-Resource    common.resource
 Resource    login_keywords.resource
 
 
@@ -12,14 +11,11 @@ ${PRODUCT_SORT_DROPDOWN}     css=[data-test="product-sort-container"]
 ${BACKPACK_NAME}             Sauce Labs Backpack
 ${BIKE_LIGHT_NAME}           Sauce Labs Bike Light
 ${FLEECE_JACKET_NAME}        Sauce Labs Fleece Jacket
+${Z_TO_A_FIRST_PRODUCT}      Test.allTheThings() T-Shirt (Red)
+${LOW_TO_HIGH_FIRST_PRICE}   $7.99
 
 
 *** Keywords ***
-Open SauceDemo And Login With Valid User
-    Open SauceDemo
-    Login With Credentials    ${VALID_USER}    ${VALID_PASSWORD}
-    Login Should Be Successful
-
 Products Page Should Be Visible
     Wait Until Location Contains    inventory.html
     Wait Until Element Is Visible    ${PRODUCT_LIST}
