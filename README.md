@@ -160,6 +160,3 @@ A documentação completa da estratégia está disponível em:
 
 ![Robot Framework Report](docs/images/robot-report.png)
 
-## Estratégia de Testes
-
-[Ver estratégia de testes](docs/TEST_STRATEGY.md)
