@@ -50,7 +50,9 @@ jobs:
           python -c "import selenium; print(f'Selenium {selenium.__version__}')"
 
       - name: Prepare reports directory
-        run: mkdir -p results
+        run: |
+          rm -rf results
+          mkdir -p results
 
       - name: Display workspace files
         run: |
