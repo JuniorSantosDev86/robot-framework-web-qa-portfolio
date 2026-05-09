@@ -140,8 +140,26 @@ O workflow instala as dependências, executa a suíte Robot Framework e salva os
 - Checkout exige sobrenome.
 - Checkout exige CEP.
 
-## Próximos Passos
+## Estratégia de Testes
 
-- Adicionar screenshots ou GIFs demonstrando a execução.
-- Expandir o projeto com cenários negativos adicionais.
-- Adicionar documentação com estratégia de testes e decisões técnicas.
+A suíte foi organizada para validar fluxos funcionais críticos da aplicação SauceDemo em uma jornada web end-to-end.
+
+Os testes cobrem autenticação, listagem e ordenação de produtos, carrinho de compras e checkout. A estrutura separa cenários de teste e keywords reutilizáveis, facilitando leitura, manutenção e evolução do projeto.
+
+A execução automatizada no GitHub Actions garante validação contínua da suíte e disponibiliza os relatórios HTML do Robot Framework como artifact.
+
+A documentação completa da estratégia está disponível em:
+
+[Ver estratégia de testes](docs/TEST_STRATEGY.md)
+
+## Evidência de Execução no GitHub Actions
+
+![GitHub Actions Green](docs/images/github-actions-green.png)
+
+## Relatório Local do Robot Framework
+
+![Robot Framework Report](docs/images/robot-report.png)
+
+## Estratégia de Testes
+
+[Ver estratégia de testes](docs/TEST_STRATEGY.md)
